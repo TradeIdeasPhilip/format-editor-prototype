@@ -1,0 +1,135 @@
+:root {
+  color-scheme: light dark;
+  --text: #1d1d1f;
+  --background: #ffffff;
+  --muted: #6e6e73;
+  --border: #c7c7cc;
+  --focus: #0a66d8;
+  --chip-background: #e3edfb;
+  --chip-border: #9dbbe6;
+  --invalid: #d70015;
+  --invalid-background: #fde8ea;
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--background);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #f2f2f7;
+    --background: #1c1c1e;
+    --muted: #a1a1a6;
+    --border: #48484a;
+    --focus: #4c9bff;
+    --chip-background: #1f3553;
+    --chip-border: #3b6aa8;
+    --invalid: #ff6b6b;
+    --invalid-background: #4a1c20;
+  }
+}
+
+body {
+  max-width: 50rem;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+h1 {
+  margin-bottom: 0.25rem;
+}
+
+h2 {
+  margin: 1.5rem 0 0.5rem;
+  font-size: 1.15rem;
+}
+
+h3 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.hint {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.warning,
+.invalid {
+  color: var(--invalid);
+}
+
+textarea {
+  width: 100%;
+  box-sizing: border-box;
+  font: 0.95rem ui-monospace, monospace;
+}
+
+.toolbar {
+  margin-bottom: 0.5rem;
+}
+
+.format-editor {
+  min-height: 6rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  /* Newlines are stored as plain "\n" characters, not <br> or <div>. */
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  line-height: 1.9;
+  font-size: 1.05rem;
+}
+
+.format-editor:focus-within {
+  outline: 2px solid var(--focus);
+  outline-offset: 1px;
+}
+
+.format-chip {
+  display: inline-block;
+  margin: 0 1px;
+  vertical-align: baseline;
+}
+
+.format-chip select {
+  font: inherit;
+  font-size: 0.8rem;
+  line-height: 1.2;
+  padding: 0 0.15rem;
+  color: var(--text);
+  background: var(--chip-background);
+  border: 1px solid var(--chip-border);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.format-chip.invalid select {
+  color: var(--invalid);
+  background: var(--invalid-background);
+  border-color: var(--invalid);
+  font-weight: 600;
+}
+
+/* In the open menu, all options except the unknown one use the normal color. */
+.format-chip.invalid select option {
+  color: var(--text);
+  font-weight: normal;
+}
+
+.format-chip select option.invalid {
+  color: var(--invalid);
+}
+
+table {
+  border-collapse: collapse;
+  font: 0.9rem ui-monospace, monospace;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 0.15rem 0.75rem 0.15rem 0;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
