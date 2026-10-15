@@ -6,9 +6,7 @@ import { defineConfig } from "vite";
 export default defineConfig({
   build: {
     target: "esnext",
-    // This works well with GitHub pages.  GitHub can put everything in the docs directory on the web.
-    outDir: "docs",
   },
-  // The default configuration assumes I have access to the root of the webserver.
+  // Relative paths so the build works from GitHub Pages or any subdirectory.
   base: "./",
 });

@@ -9,8 +9,20 @@ Text is ordinary editable text. Each `⸨name⸩` is an atomic chip displayed as
 npm install
 npm run dev     # try it
 npm test        # unit tests for the string model
-npm run build   # type check, then build into docs/ for GitHub Pages
+npm run build   # type check, then build into dist/
 ```
+
+## Publishing
+
+Every push to `master` builds the site and publishes it to GitHub Pages, using
+[.github/workflows/deploy.yml](.github/workflows/deploy.yml). The compiled output is never committed:
+`dist/` is in `.gitignore`, and the Actions run builds a fresh copy each time. To redeploy without a
+new commit, use **Actions → Deploy to GitHub Pages → Run workflow**.
+
+One-time setup: in the GitHub repo, **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+
+`npm run build` also runs `tsc`, so a type error fails the deploy and the live site keeps the last
+good version.
 
 ## Behavior
 
